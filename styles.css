@@ -1,3 +1,5 @@
+/* Global font-family: */
+
 * {
     font-family: Helvetica, sans-serif;
 }
@@ -40,13 +42,17 @@ h3 {
     width: 100px;
     height: 100px;
     background-color: #f8F9fa;
-    /* Styles square.innerText */
+
+    /* square.innerText styling: */
+
     margin: auto;
     text-align: center;
     vertical-align: middle;
     line-height: 100px;
     font-size: 5rem;
 }
+
+/* Line styling: */
 
 .top {
     border-bottom-color: rgba(52, 58, 64, 0.500);
@@ -72,18 +78,20 @@ h3 {
     border-left-width: 2.5px;
 }
 
-#squareC {
-    border-top-right-radius: 0.50rem;
+/* Border-radius styling: */
+
+#square3 {
+    border-top-right-radius: 0.5rem;
 }
 
-#squareI {
-    border-bottom-right-radius: 0.50rem;
+#square9 {
+    border-bottom-right-radius: 0.5rem;
 }
 
-#squareG {
-    border-bottom-left-radius: 0.50rem;
+#square7 {
+    border-bottom-left-radius: 0.5rem;
 }
 
-#squareA {
-    border-top-left-radius: 0.0rem;
+#square1 {
+    border-top-left-radius: 0.05rem;
 }
