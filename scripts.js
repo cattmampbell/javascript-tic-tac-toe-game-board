@@ -4,7 +4,7 @@ function startGame() {
     document.turn = 'X';
 
     // Display, "X's get to start!", message in #turnMessage via setTurnMessage()
-    setTurnMessage(document.turn + '\'s gets to start!');
+    setTurnMessage(document.turn + '\'s start first!');
 
     // Set document.turn 'color:' to '#6c757d;' (#6c757d = 'secondary' (light grey) in Bootstrap 4.0)
     document.getElementById('turnMessage').style.color = '#6c757d';
@@ -68,7 +68,11 @@ function nextMove(square) {
     }
 }
 
-/* Instead of creating ONE long function, create MANY short functions! */
+/*
+********************************************************************* 
+* Instead of creating ONE long function, create MANY short functions! 
+*********************************************************************
+*/
 
 /* 
 * Want to check for winning condition:
@@ -79,10 +83,20 @@ function checkWinner(move) {
     let result = false;
 
     /*
-    *   #square1   |   #square2   |   #square3
-    *   #square4   |   #square5   |   #square6
-    *   #square7   |   #square8   |   #square9
+    *               |              |
+    *    #square1   |   #square2   |   #square3
+    *               |              |
+    *   ------------ -------------- -------------
+    *               |              |
+    *    #square4   |   #square5   |   #square6
+    *               |              |
+    *   ------------ -------------- -------------
+    *               |              |
+    *    #square7   |   #square8   |   #square9
+    *               |              |
     */
+
+    // If...
     if (
         // ...#square1, #square2 and #square3 = 'X', 'X', 'X'/'O', 'O', 'O'
         checkRow(1, 2, 3, move) ||

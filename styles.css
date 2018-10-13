@@ -1,5 +1,4 @@
-/* Global font-family: */
-
+/* GLOBAL STYLING */
 * {
     font-family: Helvetica, sans-serif;
 }
@@ -43,8 +42,7 @@ h3 {
     height: 100px;
     background-color: #f8F9fa;
 
-    /* square.innerText styling: */
-
+    /* INNER TEXT STYLING */
     margin: auto;
     text-align: center;
     vertical-align: middle;
@@ -52,8 +50,7 @@ h3 {
     font-size: 5rem;
 }
 
-/* Line styling: */
-
+/* BOARD-LINE STYLING */
 .top {
     border-bottom-color: rgba(52, 58, 64, 0.500);
     border-bottom-style: solid;
@@ -78,8 +75,7 @@ h3 {
     border-left-width: 2.5px;
 }
 
-/* Border-radius styling: */
-
+/* BORDER-RADIUS STYLING */
 #square3 {
     border-top-right-radius: 0.5rem;
 }
