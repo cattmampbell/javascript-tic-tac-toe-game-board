@@ -13,35 +13,41 @@
     </head>
 
     <!-- Body -->
-    <body>
+    <body onload="startGame();">
         <div class="container">
             <!-- Heading -->
-            <div class="row" id="row1">
+            <div class="row">
                 <h1>Tic Tac Toe</h1>
+            </div>
+            <div class="row">
+                <h3 id="turnMessage">
+                    <!-- X's Turn/O's Turn -->
+
+                </h3>
             </div>
             <div id="board">
                 <!-- Top Row -->
-                <div class="row" id="row2">
-                    <div class="top left square" id="squareA"></div>
-                    <div class="top middle square" id="squareB"></div>
-                    <div class="top right square" id="squareC"></div>
+                <div class="row" id="rowA">
+                    <div class="top left square" id="square1" onCLick="nextMove(this)"></div>
+                    <div class="top middle square" id="square2" onCLick="nextMove(this)"></div>
+                    <div class="top right square" id="square3" onCLick="nextMove(this)"></div>
                 </div>
                 <!-- Middle Row -->
-                <div class="row" id="row3">
-                    <div class="middle left square" id="squareD"></div>
-                    <div class="middle center square" id="squareE"></div>
-                    <div class="middle right square" id="squareF"></div>
+                <div class="row" id="rowB">
+                    <div class="middle left square" id="square4" onCLick="nextMove(this)"></div>
+                    <div class="middle center square" id="square5" onCLick="nextMove(this)"></div>
+                    <div class="middle right square" id="square6" onCLick="nextMove(this)"></div>
                 </div>
                 <!-- Bottom Row -->
-                <div class="row" id="row4">
-                    <div class="bottom left square" id="squareG"></div>
-                    <div class="bottom middle square" id="squareH"></div>
-                    <div class="bottom right square" id="squareI"></div>
+                <div class="row" id="rowC">
+                    <div class="bottom left square" id="square7" onCLick="nextMove(this)"></div>
+                    <div class="bottom middle square" id="square8" onCLick="nextMove(this)"></div>
+                    <div class="bottom right square" id="square9" onCLick="nextMove(this)"></div>
                 </div>
             </div>
         </div>
 
         <!-- Scripts JS -->
-        <script src="scripts.js"></script>
+        <script src="scripts.js" type="application/javascript"></script>
     </body>
 </html>
