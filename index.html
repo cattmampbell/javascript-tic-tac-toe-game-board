@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- Head -->
+    <!-- HEAD -->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- Title -->
+        <!-- TITLE -->
         <title>JavaScript - Tic Tac Toe Board Game</title>
-        <!-- Styles CSS -->
+        <!-- STYLES CSS FILE -->
         <link rel="stylesheet" href="styles.css">
     </head>
 
-    <!-- Body -->
+    <!-- BODY -->
     <body onload="startGame();">
+        <!-- CONTAINER -->
         <div class="container">
             <div class="row">
-                <!-- Heading -->
+                <!-- HEADING -->
                 <h1>Tic Tac Toe</h1>
             </div>
             <div class="row">
+                <!-- "X's start first!",
+                    "It is O's turn",
+                    "It is X's Turn"
+                    "Oops, pick a different square!"
+                    "Congratulations ___'s, your are the winner!" -->
                 <h3 id="turnMessage"> 
-                    <!-- "X's gets to start!",
-                        "It is O's turn",
-                        "It is X's Turn"
-                        "Oops, pick a different square!"
-                        "Congratulations ___'s, your are the winner! " -->
 
                 </h3>
             </div>
             <div id="board">
-                <!-- Top Row -->
+                <!-- TOP ROW -->
                 <div id="topRow" class="row">
                     <div id="square1" class="top left square" onCLick="nextMove(this)"></div>
                     <div id="square2" class="top middle square" onCLick="nextMove(this)"></div>
                     <div id="square3" class="top right square" onCLick="nextMove(this)"></div>
                 </div>
-                <!-- Middle Row -->
+                <!-- MIDDLE ROW -->
                 <div id="middleRow" class="row">
                     <div id="square4" class="middle left square" onCLick="nextMove(this)"></div>
                     <div id="square5" class="middle center square" onCLick="nextMove(this)"></div>
                     <div id="square6" class="middle right square" onCLick="nextMove(this)"></div>
                 </div>
-                <!-- Bottom Row -->
+                <!-- BOTTOM ROW -->
                 <div id="bottomRow" class="row">
                     <div id="square7" class="bottom left square" onCLick="nextMove(this)"></div>
                     <div id="square8" class="bottom middle square" onCLick="nextMove(this)"></div>
                     <div id="square9" class="bottom right square" onCLick="nextMove(this)"></div>
                 </div>
             </div>
+            <div class="row">
+                <!-- BUTTON -->
+                <button id="">Play Again</button>
+            </div>
         </div>
 
-        <!-- Scripts JS -->
+        <!-- SCRIPTS JS FILE -->
         <script src="scripts.js" type="application/javascript"></script>
     </body>
 </html>
