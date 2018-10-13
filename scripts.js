@@ -12,6 +12,8 @@ function startGame() {
     document.turn = 'X';
     // Create another global variable on the document object, assign value of 'null' ('null' = nothing)
     document.winner = null;
+    //
+    document.cat = false;
 
     // Display, "X's get to start!", message in #turnMessage via setTurnMessage()
     setTurnMessage(document.turn + '\'s start first!');
@@ -28,18 +30,29 @@ function setTurnMessage(message) {
 /* Want function to switch document.turn from "X's" to "O's": */
 function switchTurn() {
     // If checkWinner returns true
-    if (checkWinner(document.turn)) {
-         // Sets value of document.winner to document.turn
-         document.winner = document.turn;
+    if (checkWinner(document.turn) && document.cat == false) {
+        // Sets value of document.winner to document.turn
+        document.winner = document.turn;
         // Displays, "Congratulations ___'s, you win!", message in #turnMessage via setTurnMessage()
         setTurnMessage('Congratulations ' + document.turn + '\'s, you win!');
         // Set document.turn 'color:' to '#28a745;' (#28a745 = 'success' (green) in Bootstrap 4.0)
         document.getElementById('turnMessage').style.color = '#28a745';
 
         // Set #refreshBtn 'visibility:' to 'visible;'
-        document.getElementById('refreshBtn').style.visibility = 'visible'; 
+        document.getElementById('refreshBtn').style.visibility = 'visible';
+    // Else if nether X's/O's is winner
+    } else if (document.cat == true) {
+        // Display, "Cat! Play again?", message in #turnMessage via setTurnMessage()
+        setTurnMessage('Cat! Play again?');
+        // Set document.turn 'color:' to '#16a2b8;' (#16a2b8 = 'info' (yellow) in Bootstrap 4.0)
+        document.getElementById('turnMessage').style.color = '#16a2b8';
+
+        // Set #refreshBtn 'visibility:' to 'visible;'
+        document.getElementById('refreshBtn').style.visibility = 'visible';
+    }
+
     // Else if document.turn is 'X'    
-    } else if (document.turn == 'X') {
+    else if (document.turn == 'X') {
         // Set document.turn to 'O'
         document.turn = 'O';
         // Display, "It is O's turn.", message in #turnMessage via setTurnMessage()
@@ -59,12 +72,12 @@ function switchTurn() {
 
 /* Want browser to handle click events, and each .square to handle click events: */
 function nextMove(square) {
-    // If (X's/O's is the winner)
-    if(document.winner != null) {
+    // If X's/O's is winner
+    if (document.winner != null) {
         // Display, "___'s already won!", message in #turnMessage via setTurnMessage()
         setTurnMessage(document.turn + '\'s already won!');
         // Set document.turn 'color:' to '#ffc904;' (#ffc904 = 'warning' (yellow) in Bootstrap 4.0)
-        document.getElementById('turnMessage').style.color = '#ffc904'; 
+        document.getElementById('turnMessage').style.color = '#ffc904';       
     // Else if .square is empty
     } else if (square.innerText == '') {
         // Set value of square.innerText to document.turn
@@ -87,11 +100,17 @@ function nextMove(square) {
 *********************************************************************
 */
 
+// Initialize turnCount to 0
+let turnCount = 0;
+
 /* 
 * Want to check for winning condition:
 * Calls checkRow(), passes in #square__ of each possible winning condition and returns result (true/false)
 */
 function checkWinner(move) {
+    // Add 1 to turnCount each time checkWinner() is called
+    turnCount += 1; 
+
     // Initialize result to false
     let result = false;
 
@@ -129,6 +148,8 @@ function checkWinner(move) {
         checkRow(3, 5, 7, move)) {
         // Set result = true
         result = true;
+    } else if(turnCount > 8 && result === false) {
+        document.cat = true;
     }
     return result;
 }
