@@ -1,11 +1,20 @@
 /* Want X's to have 1st turn of every game: */
 function startGame() {
-    // Create a variable on the document object, assign value of 'X'
+    // Loops through #square___, set innerText to ''
+    for(let i = 1; i <= 9; i += 1) {
+        clearBox(i);
+
+        // Set #refreshBtn 'visibility:' to 'hidden;'
+        document.getElementById('refreshBtn').style.visibility = 'hidden'; 
+    }
+
+    // Create a global variable on the document object, assign value of 'X'
     document.turn = 'X';
+    // Create another global variable on the document object, assign value of 'null' ('null' = nothing)
+    document.winner = null;
 
     // Display, "X's get to start!", message in #turnMessage via setTurnMessage()
     setTurnMessage(document.turn + '\'s start first!');
-
     // Set document.turn 'color:' to '#6c757d;' (#6c757d = 'secondary' (light grey) in Bootstrap 4.0)
     document.getElementById('turnMessage').style.color = '#6c757d';
 }
@@ -20,30 +29,29 @@ function setTurnMessage(message) {
 function switchTurn() {
     // If checkWinner returns true
     if (checkWinner(document.turn)) {
-        // Displays, "Congratulations ___'s, you are the winner!", message in #turnMessage via setTurnMessage()
-        setTurnMessage('Congratulations ' + document.turn + '\'s, you are the winner!');
-
+         // Sets value of document.winner to document.turn
+         document.winner = document.turn;
+        // Displays, "Congratulations ___'s, you win!", message in #turnMessage via setTurnMessage()
+        setTurnMessage('Congratulations ' + document.turn + '\'s, you win!');
         // Set document.turn 'color:' to '#28a745;' (#28a745 = 'success' (green) in Bootstrap 4.0)
         document.getElementById('turnMessage').style.color = '#28a745';
 
+        // Set #refreshBtn 'visibility:' to 'visible;'
+        document.getElementById('refreshBtn').style.visibility = 'visible'; 
     // Else if document.turn is 'X'    
     } else if (document.turn == 'X') {
         // Set document.turn to 'O'
         document.turn = 'O';
-
         // Display, "It is O's turn.", message in #turnMessage via setTurnMessage()
         setTurnMessage('It is ' + document.turn + '\'s turn');
-
         // Set document.turn 'color:' to '#0586ff;' (#0586ff = 'primary' (blue) in Bootstrap 4.0)
         document.getElementById('turnMessage').style.color = '#0586ff';
     // Else...
     } else {
         // Set document.turn to 'X'
         document.turn = 'X';
-
         // Display, "It's X's turn.", message in #turnMessage via setTurnMessage()
         setTurnMessage('It is ' + document.turn + '\'s turn.');
-
         // Set document.turn 'color:' to '#de3241;' (#de3241 = 'danger' (red) in Bootstrap 4.0)
         document.getElementById('turnMessage').style.color = '#de3241'; 
     }
@@ -51,20 +59,25 @@ function switchTurn() {
 
 /* Want browser to handle click events, and each .square to handle click events: */
 function nextMove(square) {
-    // If the .square is empty
-    if (square.innerText == '') {
-        // Add value of document.turn to square.innerText
+    // If (X's/O's is the winner)
+    if(document.winner != null) {
+        // Display, "___'s already won!", message in #turnMessage via setTurnMessage()
+        setTurnMessage(document.turn + '\'s already won!');
+        // Set document.turn 'color:' to '#ffc904;' (#ffc904 = 'warning' (yellow) in Bootstrap 4.0)
+        document.getElementById('turnMessage').style.color = '#ffc904'; 
+    // Else if .square is empty
+    } else if (square.innerText == '') {
+        // Set value of square.innerText to document.turn
         square.innerText = document.turn;
 
         // Call switchTurn() 
         switchTurn();
-    // Else the .square isn't empty
+    // Else (.square isn't empty)
     } else {
         // Display, "Oops, pick a different square", message in #turnMessage via setTurnMessage()
         setTurnMessage('Oops, pick a different square!');
-
         // Set document.turn 'color:' to '#ffc904;' (#ffc904 = 'warning' (yellow) in Bootstrap 4.0)
-        document.getElementById('turnMessage').style.color = '#ffc904'; 
+        document.getElementById('turnMessage').style.color = '#ffc904';
     }
 }
 
@@ -117,7 +130,6 @@ function checkWinner(move) {
         // Set result = true
         result = true;
     }
-
     return result;
 }
 
@@ -134,11 +146,15 @@ function checkRow(a, b, c, move) {
         // Set result = true
         result = true;
     }
-
     return result;
 }
 
 /* Want function to return value of each #square___ (either "X"/"O"): */
 function getBox(number) {
     return document.getElementById('square' + number).innerText;
+}
+
+/* Want function to clear value of each #square___ (either "X"/"O"): */
+function clearBox(number) {
+    document.getElementById('square' + number).innerText = ''; 
 }

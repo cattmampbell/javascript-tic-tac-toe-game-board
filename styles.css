@@ -27,7 +27,8 @@ h3 {
     font-weight: 400;
 }
 
-#board {
+#board,
+#refreshBtn {
     margin-left: 6rem;
 }
 
@@ -46,6 +47,7 @@ h3 {
     margin: auto;
     text-align: center;
     vertical-align: middle;
+    color: #343a40;
     line-height: 100px;
     font-size: 5rem;
 }
@@ -89,5 +91,35 @@ h3 {
 }
 
 #square1 {
-    border-top-left-radius: 0.05rem;
+    border-top-left-radius: 0.5rem;
+}
+
+/* BUTTON STYLING */
+#refreshBtn {
+    margin-top: 1rem;
+    
+    /* HIDDEN BY DEFAULT! */
+    visibility: hidden;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+
+    /* INNER TEXT STYLING */
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 1.50rem;
+    color: #f8F9fa;
+    background-color: rgba(52, 58, 64, 0.500);
+    border-radius: 0.50rem;
+    border: none;   
+}
+
+button:hover {
+    color: rgba(52, 58, 64, 0.500);
+    background-color: #f8F9fa;
+    border: none;
 }
