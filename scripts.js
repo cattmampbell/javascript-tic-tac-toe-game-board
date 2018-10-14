@@ -30,7 +30,7 @@ function setTurnMessage(message) {
 /* Want function to switch document.turn from "X's" to "O's": */
 function switchTurn() {
     // If checkWinner returns true
-    if (checkWinner(document.turn) && document.cat == false) {
+    if (checkWinner(document.turn) && document.cat === false) {
         // Sets value of document.winner to document.turn
         document.winner = document.turn;
         // Displays, "Congratulations ___'s, you win!", message in #turnMessage via setTurnMessage()
@@ -41,7 +41,7 @@ function switchTurn() {
         // Set #refreshBtn 'visibility:' to 'visible;'
         document.getElementById('refreshBtn').style.visibility = 'visible';
     // Else if nether X's/O's is winner
-    } else if (document.cat == true) {
+    } else if (document.cat === true) {
         // Display, "Cat! Play again?", message in #turnMessage via setTurnMessage()
         setTurnMessage('Cat! Play again?');
         // Set document.turn 'color:' to '#16a2b8;' (#16a2b8 = 'info' (yellow) in Bootstrap 4.0)
