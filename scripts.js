@@ -1,5 +1,11 @@
+// Initialize turnCount to 0
+let turnCount = 0;
+
 /* Want X's to have 1st turn of every game: */
 function startGame() {
+    // Reset turnCount to 0
+    turnCount = 0;
+
     // Loops through #square___, set innerText to ''
     for(let i = 1; i <= 9; i += 1) {
         clearBox(i);
@@ -8,11 +14,11 @@ function startGame() {
         document.getElementById('refreshBtn').style.visibility = 'hidden'; 
     }
 
-    // Create a global variable on the document object, assign value of 'X'
+    // Create a global variable on the document object, assign initial value of 'X'
     document.turn = 'X';
-    // Create another global variable on the document object, assign value of 'null' ('null' = nothing)
+    // Create another global variable on the document object, assign initial value of 'null'
     document.winner = null;
-    //
+    // Create another global variable on the document object, assign initial value of false
     document.cat = false;
 
     // Display, "X's get to start!", message in #turnMessage via setTurnMessage()
@@ -99,9 +105,6 @@ function nextMove(square) {
 * Instead of creating ONE long function, create MANY short functions! 
 *********************************************************************
 */
-
-// Initialize turnCount to 0
-let turnCount = 0;
 
 /* 
 * Want to check for winning condition:
